@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with HTML Validation</title>
+</head>
+<body>
+    <h1>HITMS Registration Form</h1>
+ 
+    <form action="/register" method="post">
+        <label for="studentName">Full Name:</label>
+        <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            required
+            minlength="3"
+            maxlength="40"
+            placeholder="Enter your full name"
+        >
+        <br><br>
+ 
+        <label for="studentEmail">Email:</label>
+        <input
+            type="email"
+            id="studentEmail"
+            name="studentEmail"
+            required
+            placeholder="example@email.com"
+        >
+        <br><br>
+ 
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            required
+            minlength="11"
+            maxlength="15"
+            pattern="[0-9]{11,15}"
+            placeholder="03001234567"
+        >
+        <br><br>
+ 
+        <label for="age">Age:</label>
+        <input
+            type="number"
+            id="age"
+            name="age"
+            required
+            min="16"
+            max="60"
+        >
+        <br><br>
+ 
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            maxlength="30"
+            placeholder="At least 8 characters"
+        >
+        <br><br>
+ 
+        <label for="program">Program:</label>
+        <select id="program" name="program" required>
+            <option value="">-- Select a program --</option>
+            <option value="bsse">BS Software Engineering</option>
+            <option value="bscs">BS Computer Science</option>
+            <option value="bsit">BS Information Technology</option>
+        </select>
+        <br><br>
+ 
+        <label for="admissionDate">Admission Date:</label>
+        <input type="date" id="admissionDate" name="admissionDate" required>
+        <br><br>
+ 
+        <input type="submit" value="Register">
+        <input type="reset" value="Clear">
+    </form>
+ 
+    <h2>Validation Testing</h2>
+    <table border="1">
+        <tr>
+            <th>Field</th>
+            <th>Test Value</th>
+            <th>Expected Browser Validation</th>
+        </tr>
+        <tr>
+            <td>Full Name</td>
+            <td>As</td>
+            <td>Invalid because minimum length is 3 characters.</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>ayeshajun.2005.gmail.com</td>
+            <td>Invalid because it is not a valid email format.</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>0319243172</td>
+            <td>Invalid because the pattern only allows 11 to 15 digits.</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>12</td>
+            <td>Invalid because the allowed range is 16 to 60.</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>ARMY</td>
+            <td>Invalid because minimum length is 8 characters.</td>
+        </tr>
+        <tr>
+            <td>Program</td>
+            <td>No selection</td>
+            <td>Invalid because the field is required.</td>
+        </tr>
+        <tr>
+            <td>Valid example</td>
+            <td>Ayesha Shaikh / ayeshajun.2005@gmail.com / 03192431722 / age 21 / A1R2M3Y4</td>
+            <td>Should pass the listed HTML validation rules.</td>
+        </tr>
+    </table>
+ 
+    <p>
+        Note: The browser performs these checks automatically when the form is submitted.
+        JavaScript is not required for the built-in validation used in this task.
+    </p>
+</body>
+</html>
